@@ -3,11 +3,12 @@ import numpy as np
 import requests
 from PIL import Image
 
+
 class FashionStylist:
     def __init__(self):
         self.api_key = "YOUR_API_KEY"  # Replace with your own API key
         self.base_url = "https://api.example.com"  # Replace with your API endpoint
-        
+
     def get_recommendations(self, user_style, user_body_type, user_budget):
         url = f"{self.base_url}/recommendations"
         headers = {
@@ -100,11 +101,13 @@ class FashionStylist:
         response = requests.post(url, headers=headers, json=data)
         return response.status_code, response.json()
 
+
 # Usage example:
 fashion_stylist = FashionStylist()
 
 # Get personalized recommendations
-recommended_items = fashion_stylist.get_recommendations("casual", "hourglass", 100)
+recommended_items = fashion_stylist.get_recommendations(
+    "casual", "hourglass", 100)
 print("Recommended items:", recommended_items)
 
 # Mix and match user's clothes
@@ -113,7 +116,8 @@ mix_and_match_results = fashion_stylist.mix_and_match(user_clothes)
 print("Mix and match results:", mix_and_match_results)
 
 # Try on clothes virtually
-try_on_result = fashion_stylist.try_on_clothes("user_image.jpg", "clothes_image.jpg")
+try_on_result = fashion_stylist.try_on_clothes(
+    "user_image.jpg", "clothes_image.jpg")
 print("Virtual try-on result:", try_on_result)
 
 # Share outfit on social media
@@ -121,7 +125,8 @@ status_code, response = fashion_stylist.share_outfit("outfit.jpg", "instagram")
 print("Share outfit response:", status_code, response)
 
 # Purchase item
-status_code, response = fashion_stylist.purchase_item("item123", {"name": "John", "email": "john@example.com"})
+status_code, response = fashion_stylist.purchase_item(
+    "item123", {"name": "John", "email": "john@example.com"})
 print("Purchase item response:", status_code, response)
 
 # Provide feedback
